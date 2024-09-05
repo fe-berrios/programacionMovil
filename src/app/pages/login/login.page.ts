@@ -30,11 +30,7 @@ export class LoginPage implements OnInit {
 
   // Método asociado al boton para hacer un login
   login(){
-    if(this.email=="mar.correar@duocuc.cl" && this.password=="Correa"){
-      this.router.navigate(['/home'])
-    }else{
-      alert("Correo o contraseña INCORRECTOS!")
-    }
+    this.router.navigate(['/home'])
   }
 
 }
