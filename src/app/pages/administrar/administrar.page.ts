@@ -31,7 +31,7 @@ export class AdministrarPage implements OnInit {
     this.usuarios = this.usuarioService.getUsuarios();
   }
 
-  registrar(){
+  createUsuario(){
     // Se accede al objeto (this.usuarioService) y se accede al método (.createUsuario)
     // y se le da el objeto 'persona' al método.
     if(this.usuarioService.createUsuario(this.persona.value)){
@@ -40,6 +40,37 @@ export class AdministrarPage implements OnInit {
       this.persona.reset()
     } else {
       alert("Error! No se pudo crear el usuario.")
+    }
+  }
+
+  getUsuario(rut: string){
+    // Se le asigna valor a 'persona' (this.persona.setValue)
+    // y se rescatan los datos del usuario (this.usuarioService.getUsuario(rut));
+    this.persona.setValue(this.usuarioService.getUsuario(rut));
+  }
+
+  updateUsuario(){
+    // Se crea una variable ya que ionic no permite que potencialmente NO encuentre algun rut
+    // entonces en esta variable le asignamos el valor del rut o (||) un string vacio ("");
+    var rut_buscar: string= this.persona.controls.rut.value || "";
+    // Se llama al servicio, se accede al método,
+    // se utiliza la variable (this.persona.controls.rut.value) y
+    // se utiliza la persona (this.persona.value)
+    if (this.usuarioService.updateUsuario(rut_buscar, this.persona.value)){
+      alert("Usuario modificado con éxito!")
+    } else {
+      alert("ERROR! Usuario no modificado.")
+    }
+  }
+
+  deleteUsuario(rut: string){
+    // Se llama al método del Service "deleteUsuario" para eliminar el usuario
+    // Se le entrega la variable de 'rut' que rescatamos del *ngFor de los usuarios.
+    if(this.usuarioService.deleteUsuario(rut)){
+      // Se DEBE agregar una alerta de '¿Estas seguro quieres eliminar al usuario?'
+      alert("Usuario eliminado con éxito!")
+    }else{
+      alert("ERROR! Usuario no ha sido eliminado")
     }
   }
 

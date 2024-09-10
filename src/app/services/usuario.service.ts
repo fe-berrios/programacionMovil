@@ -25,15 +25,17 @@ export class UsuarioService {
   }
 
   public updateUsuario(rut:string, nuevoUsuario:any){
-    // For each, por cada 'usuario' en 'usuarios'
-    for(let usuario of this.usuarios){
-      // Si el usuario tiene el mismo rut entregado
-      if(usuario.rut == rut){
-        // Usuario se convierte en un 'nuevoUsuario'
-        usuario = nuevoUsuario;
-      }
+    // Se crea constante que contiene el indice de donde esta el usuario con el rut ingresado
+    // Se utiliza 'const' para no poder cambiar el valor de la variable
+    const indice = this.usuarios.findIndex(usuario => usuario.rut == rut);
+    // Si el indice es -1 entonces NO existe el usuario
+    // El -1 es propio del método findIndex
+    if(indice == -1){
+      return false;
     }
-    return false;
+    // Se va a la variable de donde se localiza el usuario, y se reemplaza por un nuevoUsuario.
+    this.usuarios[indice] = nuevoUsuario;
+    return true;
   }
 
   public deleteUsuario(rut:string){
@@ -49,8 +51,8 @@ export class UsuarioService {
     return true;
   }
 
-  public getUsuario(rut:string){
-    this.usuarios.find(usuario => usuario.rut == rut);
+  public getUsuario(rut:string):any{
+    return this.usuarios.find(usuario => usuario.rut == rut);
     // De la lista anda elemento por elemento (usuario) e itera (=>)
     // hasta que el elemento.atributo (usuario.rut) coincida (==) con la variable del método (rut).
   }
