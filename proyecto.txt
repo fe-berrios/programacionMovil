@@ -1,0 +1,4 @@
+Storage/Application (F12)
+npm install -g @ionic/storage
+npm install -g @ionic/storage-angular
+
