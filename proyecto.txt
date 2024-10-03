@@ -2,3 +2,6 @@ Storage/Application (F12)
 npm install -g @ionic/storage
 npm install -g @ionic/storage-angular
 
+Leaflet/Angular
+npm install leaflet
+npm install @types/leaflet

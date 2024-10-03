@@ -34,8 +34,13 @@ export class UsuarioService {
     return true;
   }
 
+  // Método debe ser siempre 'async' cuando se trabaja con await!
+  // Un método async ya que esta 'asincronico' debe devolver una 'promesa' de algo.
   public async updateUsuario(rut:string, nuevoUsuario:any): Promise<boolean>{
+    // Ya que se trabaja con 'storage' se utiliza el await. ESTO SE HACE SIEMPRE.
+    // Se crea una variable que almacena el storage.
     let usuarios: any[] = await this.storage.get("usuarios") || [];
+    // Se almacena el index de la lista que creamos anteriormente que rescataba el storage.
     let index: number = usuarios.findIndex(usu => usu.rut == rut);
     if (index == -1){
       return false;
@@ -65,5 +70,15 @@ export class UsuarioService {
   public async getUsuarios(): Promise<any[]>{
     let usuarios: any[] = await this.storage.get("usuarios") || [];
     return usuarios;
+  }
+
+  public async authUsuario (correo: string, contrasena: string): Promise<any>{
+    let usuarios: any[] = await this.storage.get("usuarios") || [];
+    return usuarios.find(usu => usu.correo == correo && usu.contrasena == contrasena);
+  }
+
+  public async recoverUsuario(correo: string): Promise<any>{
+    let usuarios: any[] = await this.storage.get("usuarios") || []
+    return usuarios.find(usu => usu.correo == correo);
   }
 }

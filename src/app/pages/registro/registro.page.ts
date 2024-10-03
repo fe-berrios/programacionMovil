@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -9,54 +10,26 @@ import { Router } from '@angular/router';
 })
 export class RegistroPage implements OnInit {
 
-  //aquí podemos crear variables:
-  //NOMBRE: TIPO = VALOR;
-  //NOMBRE = Clase(VALOR);
-  //required (sig obligatorio)
-  //si hay validaciones q no encontramos debemos crearla
   persona = new FormGroup({
-    //llave: valor,
     rut: new FormControl('',[Validators.pattern("[0-9]{7,8}-[0-9kK]{1}"),Validators.required]),
     nombre: new FormControl('',[Validators.minLength(3),Validators.required]),
-    fecha_nacimiento: new FormControl ('',[Validators.required]),
-    genero: new FormControl ('',Validators.required), 
-    tiene_equipo: new FormControl('no',[Validators.required]),
-    nombre_equipo: new FormControl('', [])
+    apellido: new FormControl('', [Validators.required]),
+    correo: new FormControl('', [Validators.required]),
+    contrasena: new FormControl('', [Validators.required]),
+    contrasenaConfirmar: new FormControl('', [Validators.required])
   });
 
-  public alertButtons = [
-    {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-        console.log('Alert canceled');
-      },
-    },
-    {
-      text: 'OK',
-      role: 'confirm',
-      handler: () => {
-        console.log('Alert confirmed');
-      },
-    },
-  ];
-
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
 
   //podemos crear métodos:
-  public registrar():void{
-    //validaciones? llamar a DAO? conversión?
-    console.log(this.persona.value);
-    //alert("Registrado con éxito!!");
-    this.router.navigate(['/login']);
+  public async registrar(){
+    if (await this.usuarioService.createUsuario(this.persona.value)){
+      this.router.navigate(['/login']);
+      this.persona.reset();
+      console.log("Usuario registrado!"); 
+    }
   }
-
-  setResult(ev:any) {
-    console.log(`Dismissed with role: ${ev.detail.role}`);
-  }
-
 }

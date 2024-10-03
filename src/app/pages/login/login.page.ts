@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-login',
@@ -20,17 +21,22 @@ export class LoginPage implements OnInit {
 
 
   //ngModel:
-  email: string ="";
-  password: string = "";
+  correo: string ="";
+  contrasena: string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
 
   // Método asociado al boton para hacer un login
-  login(){
-    this.router.navigate(['/home'])
+  async login(correo: string, contrasena: string){
+    if (await this.usuarioService.authUsuario(correo, contrasena)){
+      console.log("Usuario autentificado!");
+      this.router.navigate(['/home']);
+    } else {
+      console.log("Usuario no se pudo autentificar.");
+    }
   }
 
 }

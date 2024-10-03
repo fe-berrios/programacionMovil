@@ -1,6 +1,6 @@
 <ion-header >
   <ion-toolbar>
-    <ion-title>Nuevo Registro</ion-title>
+    <ion-title>Registro</ion-title>
     <ion-buttons slot="start">
       <ion-back-button>
       </ion-back-button>
@@ -11,29 +11,20 @@
 <ion-content>
 
   <ion-card>
-    <form [formGroup]="persona" (ngSubmit)="registrar()">
-      <ion-input formControlName="rut" type="text" labelplacement="stacked" label="RUT"></ion-input>
-      <ion-input formControlName="nombre" type="text" labelplacement="stacked" label="Nombre"></ion-input>
-      <ion-input formControlName="fecha_nacimiento" type="date" labelplacement="stacked" label="Fecha Nacimiento"></ion-input>
-      <ion-select formControlName="genero" label="Género" labelplacement="stacked">
-        <ion-select-option>Maculino</ion-select-option>
-        <ion-select-option>Femenino</ion-select-option>
-        <ion-select-option>Otro</ion-select-option>
-      </ion-select>
+    <form [formGroup]="persona" (ngSubmit)="registrar()" style="margin: 20px;">
+      <ion-input formControlName="rut" type="text" labelPlacement="stacked" label="RUT"></ion-input>
+      <ion-input formControlName="nombre" type="text" labelPlacement="stacked" label="Nombre"></ion-input>
+      <ion-input formControlName="apellido" type="text" labelPlacement="stacked" label="Apellido"></ion-input>
+      <ion-input formControlName="correo" type="email" labelPlacement="stacked" label="Correo"></ion-input>
+      <ion-input formControlName="contrasena" type="password" labelPlacement="stacked" label="Contraseña"></ion-input>
+      <ion-input formControlName="contrasenaConfirmar" type="password" labelPlacement="stacked" label="Confirmar Contraseña"></ion-input>
 
-      <!-- Formulario radio-button -->
-      <ion-label>Tiene equipo?</ion-label>
-      <ion-radio-group formControlName="tiene_equipo">
-        <ion-radio value="si">Si</ion-radio>
-        <ion-radio value="no">No</ion-radio>
-      </ion-radio-group>
-
-      <ion-input *ngIf="persona.controls.tiene_equipo.value=='si'" formControlName="nombre_equipo" type="text" label="Nombre equipo" labelPlacement="stacked"></ion-input>
-
-      <ion-button id="present-alert" [disabled]="persona.invalid" type="submit" size="block" color="warning">REGISTRAR</ion-button> 
-      <ion-alert trigger="present-alert" header="Registrado con éxito! :D" [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
+      <ion-button id="present-alert" [disabled]="persona.invalid" type="submit" size="block" color="warning">REGISTRAR</ion-button>
     </form>
   </ion-card>
+    <div class="center">
+    <p>Ya tienes cuenta? <a routerLink="/login">Inicia sesión!</a></p>
+  </div>
 
 </ion-content>
 
