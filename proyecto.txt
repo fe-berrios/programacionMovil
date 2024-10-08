@@ -3,5 +3,10 @@ npm install -g @ionic/storage
 npm install -g @ionic/storage-angular
 
 Leaflet/Angular
-npm install leaflet
+npm install leaflet                         (Para instalar leaflet)
 npm install @types/leaflet
+
+npm install leaflet-control-geocoder        (Para buscar una dirección)
+
+npm install leaflet-routing-machine         (Para ver las indicaciones a una dirección)
+npm install @types/leaflet-routing-machine
