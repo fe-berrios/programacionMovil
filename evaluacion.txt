@@ -1,0 +1,17 @@
+Evaluación (2):
+    - Toda validacion correcta
+    - Guard funcional (localStorage)
+    - Todo Storage funcionando (usuarios, viajes)
+    - CRUD de usuario y viajes
+    - Perfil de usuario
+    - Creacion de viajes (válido y con datos necesarios)
+    - Ver viajes existentes (los del usuario no, en perfil mis viajes)
+    - Poder ver viaje y tomar viaje (validando capacidad de asientos)
+    - Colores de la aplicación
+    - Logo de la aplicación
+    - Recuperar contraseña validando en Storage (aun no enviar correo)
+    - Error 404
+    - README digno
+    - Pesentacion de 1 sola branch
+    - Personalización del mapa (por grupos)
+    - Historial de viajes (estado)

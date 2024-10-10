@@ -1,13 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-title slot="end">Bienvenido, {{usuarioLocal.nombre}}!</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-tabs>
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="administrar">
+      <ion-tab-button tab="administrar" *ngIf="usuarioLocal.tipoUsuario == 'Administrador'">
         <ion-icon name="pencil-outline"></ion-icon>
       </ion-tab-button>
       <ion-tab-button tab="perfil">

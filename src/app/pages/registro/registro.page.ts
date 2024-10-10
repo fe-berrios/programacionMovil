@@ -14,6 +14,7 @@ export class RegistroPage implements OnInit {
     rut: new FormControl('',[Validators.pattern("[0-9]{7,8}-[0-9kK]{1}"),Validators.required]),
     nombre: new FormControl('',[Validators.minLength(3),Validators.required]),
     apellido: new FormControl('', [Validators.required]),
+    tipoUsuario: new FormControl(''),
     correo: new FormControl('', [Validators.required]),
     contrasena: new FormControl('', [Validators.required]),
     contrasenaConfirmar: new FormControl('', [Validators.required])

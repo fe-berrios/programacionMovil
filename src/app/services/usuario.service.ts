@@ -74,7 +74,16 @@ export class UsuarioService {
 
   public async authUsuario (correo: string, contrasena: string): Promise<any>{
     let usuarios: any[] = await this.storage.get("usuarios") || [];
-    return usuarios.find(usu => usu.correo == correo && usu.contrasena == contrasena);
+    const usuarioAuth = usuarios.find(usu => usu.correo == correo && usu.contrasena == contrasena);
+    // Si encontro algo:
+    if (usuarioAuth){
+      // Se guarda en localStorage (para obtener el usuario en sesión) y se debe cambiar a string ya que...
+      // localStorage almacena la información solo si es string.
+      // la 'key' es solo "usuario" ya que estamos rescatando solo 1 usuario
+      localStorage.setItem("usuario", JSON.stringify(usuarioAuth));
+      return true;
+    }
+    return false;
   }
 
   public async recoverUsuario(correo: string): Promise<any>{
