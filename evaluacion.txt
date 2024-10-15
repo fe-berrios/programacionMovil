@@ -15,3 +15,16 @@ Evaluación (2):
     - Pesentacion de 1 sola branch
     - Personalización del mapa (por grupos)
     - Historial de viajes (estado)
+
+Viaje:
+    - id
+    - estudiante_conductor
+    - asientos_disponibles
+    - nombre_destino
+    - latitud
+    - longitud
+    - distancia_metros
+    - tiempo_segundos
+    - forma_pago
+    - estado_viaje
+    - pasajeros []

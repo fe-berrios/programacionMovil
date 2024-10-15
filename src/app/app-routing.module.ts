@@ -27,10 +27,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/recuperar/recuperar.module').then( m => m.RecuperarPageModule)
   },
   {
+    path: 'home/perfil/detalle-reserva/:id',
+    loadChildren: () => import('./pages/detalle-reserva/detalle-reserva.module').then( m => m.DetalleReservaPageModule)
+  },
+  {
     path: '**', // '**' Deja el path a todo aquel link que dirija a alguna página que no exista
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
-
 ];
 
 @NgModule({

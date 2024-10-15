@@ -21,6 +21,54 @@ export class PerfilPage implements OnInit {
   distanciaMetros: number = 0;
   tiempoSegundos: number = 0;
 
+  // Simulación de viajes
+  // eventualmente se le cargan datos a la lista desde Storage
+  viajes: any[] = [{
+    "id": 1,
+    "estudiante_conductor": "Armando Casas",
+    "asientos_disponibles": 4,
+    "nombre_destino": "Santa isabel sur, parque resindencial monteandino, puente alto",
+    "latitud": -33.59,
+    "longitud": -70.53,
+    "distancia_metros": 5000,
+    "tiempo_segundos": 900,
+    "estado_viaje": "Pendiente",
+    "pasajeros":[]
+  },{
+    "id": 2,
+    "estudiante_conductor": "Rosa Cabezas",
+    "asientos_disponibles": 1,
+    "nombre_destino": "Santa isabel sur, parque resindencial monteandino, puente alto",
+    "latitud": -33.59,
+    "longitud": -70.53,
+    "distancia_metros": 5000,
+    "tiempo_segundos": 900,
+    "estado_viaje": "En curso",
+    "pasajeros":[20561718, 13706589]
+  },{
+    "id": 3,
+    "estudiante_conductor": "Domingo Jueves",
+    "asientos_disponibles": 0,
+    "nombre_destino": "Santa isabel sur, parque resindencial monteandino, puente alto",
+    "latitud": -33.59,
+    "longitud": -70.53,
+    "distancia_metros": 5000,
+    "tiempo_segundos": 900,
+    "estado_viaje": "Finalizado",
+    "pasajeros":[23688133]
+  },{
+    "id": 4,
+    "estudiante_conductor": "Destruyendo Edificios",
+    "asientos_disponibles": 0,
+    "nombre_destino": "Santa isabel sur, parque resindencial monteandino, puente alto",
+    "latitud": -33.59,
+    "longitud": -70.53,
+    "distancia_metros": 5000,
+    "tiempo_segundos": 900,
+    "estado_viaje": "Pendiente",
+    "pasajeros":[20561718, 13706589, 23688133, 13704752]
+  }];
+
   constructor() { }
 
   ngOnInit() {

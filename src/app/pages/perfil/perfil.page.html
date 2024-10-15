@@ -1,4 +1,28 @@
 <ion-content>
+
+  <!-- Acordion de viajes -->
+  <ion-accordion-group>
+    <ion-accordion value="viajes">
+      <ion-item slot="header" color="light">
+        <ion-label>Viajes</ion-label>
+      </ion-item>
+      <!-- Para un for necesita un let antes de escribir el for -->
+      <div class="ion-padding"slot="content" *ngFor="let viaje of viajes">
+        <ion-card *ngIf="viaje.estado_viaje == 'Pendiente'">
+          <ion-card-header>
+            <ion-card-title>{{viaje.nombre_destino}}</ion-card-title>
+            <ion-card-subtitle>{{viaje.estado_viaje}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>Estudiante conductor: {{viaje.estudiante_conductor}}</p>
+            <p>Asientos disponibles: {{viaje.asientos_disponibles}}</p>
+          </ion-card-content>
+          <ion-button routerLink="/home/perfil/detalle_reserva/{{viaje.id}}" size="block" [disabled]="viaje.asientos_disponibles == 0">Ver detalle</ion-button>
+        </ion-card>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
   <ion-input label="Latitud" [(ngModel)]="latitud"></ion-input>
   <ion-input label="Longitud" [(ngModel)]="longitud"></ion-input>
   <ion-input label="Dirección" [(ngModel)]="direccion"></ion-input>
