@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/detalle-reserva/detalle-reserva.module').then( m => m.DetalleReservaPageModule)
   },
   {
+    path: 'consumo-api',
+    loadChildren: () => import('./pages/consumo-api/consumo-api.module').then( m => m.ConsumoApiPageModule)
+  },
+  {
     path: '**', // '**' Deja el path a todo aquel link que dirija a alguna página que no exista
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
