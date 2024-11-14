@@ -19,6 +19,10 @@ const routes: Routes = [
         path: 'administrar-fire',
         loadChildren: () => import('../administrar-fire/administrar-fire.module').then( m => m.AdministrarFirePageModule)
       },
+      {
+        path: 'mapa',
+        loadChildren: () => import('../mapa/mapa.module').then( m => m.MapaPageModule)
+      },
     ]
   }
 ];
