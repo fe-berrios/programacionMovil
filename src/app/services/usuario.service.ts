@@ -15,6 +15,21 @@ export class UsuarioService {
    async initStorage(){
     // await, espera que el comando se ejecute.
     await this.storage.create();
+    let usuarios = [{
+      "rut": "10200300-4",
+      "nombre": "Administrador",
+      "fecha_nacimiento": "1980-01-01",
+      "genero": "Masculino",
+      "correo": "admin@duocuc.cl",
+      "contrasena": "Ejemplo123#",
+      "valida_contrasena": "Ejemplo123#",
+      "tiene_equipo": "no",
+      "nombre_equipo": "",
+      "tipo_usuario": "Administrador"
+    }];
+    for(let u of usuarios){
+      await this.createUsuario(u);
+    }
   }
 
   // DAO (Data Access Object)
