@@ -2,6 +2,22 @@
 // Creación de app
 ionic start nombre blank --type angular ()?
 
-//
+// Generar
 ionic g page pages/nombre
 ionic g service services/nombre
+
+// www & apk
+ionic build
+firebase deploy
+npx add android
+npm install @capacitor/core @capacitor/cli
+npm install @capacitor/android
+npx cap add android
+npx cap sync android
+
+cd android
+
+en bash
+./gradlew assembleRelease
+
+

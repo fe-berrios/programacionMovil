@@ -28,3 +28,13 @@ Viaje:
     - forma_pago
     - estado_viaje
     - pasajeros []
+
+Evaluación (3):
+    - Integración correcta con fiebase, firestore y auth.
+    - Comprobar los datos almacenados en firestore (CRUD)
+    - Implementación de Auth, Recuperar contraseña
+    - Implementación y funcionalidad de QR
+    - Verificación de la integración de APIs (2)
+    - Generar APK o Hosting
+    - Incluir documentación sobre configuración (README; firebase... qr...)
+    - Pruebas unitarias (20)

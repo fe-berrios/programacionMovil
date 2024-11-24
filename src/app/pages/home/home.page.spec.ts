@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 import { RouterTestingModule } from '@angular/router/testing';
 
 // Le haré pruebas en la página home
+// Ambiente
 describe('HomePage', () => {
   // Variable que guarda todo lo que tiene HomePage
   let component: HomePage;
