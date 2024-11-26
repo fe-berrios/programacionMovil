@@ -20,4 +20,29 @@ cd android
 en bash
 ./gradlew assembleRelease
 
+APK
+// www.
+ionic build
 
+// crea una carpeta llamada android dentro del proyecto.
+npx cap add android
+    // posible error si no estan estos npm instalados.
+    npm install @capacitor/cli
+    npm install @capacitor/core
+    npm install @capacitor/android
+
+// Se sincroniza android por si la carpeta (android) ya existe ve si hay cambios con el 'www'.
+npx cap sync android
+
+// Hay que estar DENTRO de la carpeta android para generar el APK
+cd android (en proyecto)
+
+// ESTO genera el APK
+// hay que tener java compatible, sdk de android y platform-tools.
+./gradlew assembleRelease
+    JAVA_HOME               // agregar a variables de entorno en archivos de programa -> Java -> jdk-21
+    ANDROID_HOME            // agregar a variables de entorno en appdata -> local -> android -> sdk
+    OTRO PATH               // agregar a variables de entorno de abajo appdata -> local -> android -> sdk -> platform-tools
+
+// APK guardada en:
+buscar en android/app/build/outputs/apk/release
